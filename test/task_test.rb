@@ -61,6 +61,24 @@ class TaskTest < Minitest::Test
     assert(task.is_upcoming)
   end
 
+  def test_is_today
+    task = Task.new "Be a WUUH Girl", :date => Date.today
+
+    assert(task.is_today)
+  end
+
+  def test_is_today_without_a_date
+    task = Task.new "Never be a WUUH Girl"
+
+    assert(!task.is_today)
+  end
+
+  def test_is_today_with_future_date
+    task = Task.new "Never be a WUUH Girl again", :date => Date.today + 1
+
+    assert(!task.is_today)
+  end
+
   def test_is_tomorrow
     task = Task.new "Eat chips", :date => Date.today + 1
 
@@ -92,7 +110,6 @@ class TaskTest < Minitest::Test
   end
 
   def test_alias_methods
-
     task = Task.new "my awesome task"
 
     assert_respond_to(task, :is_finished?)
@@ -103,6 +120,9 @@ class TaskTest < Minitest::Test
 
     assert_respond_to(task, :is_upcoming?)
     assert_respond_to(task, :upcoming?)
+
+    assert_respond_to(task, :is_today?)
+    assert_respond_to(task, :today?)
   end
 
 end

@@ -65,5 +65,17 @@ class TasklistTest < Minitest::Test
     assert_equal(expected, tasklist.unfinished_tasks)
   end
 
+  def test_tasks_today
+    task_1 = Task.new("Task 1", :is_finished => true)
+    task_2 = Task.new("Task 2", :date => Date.today)
+    task_3 = Task.new("Task 3", :date => Date.today + 1)
+    task_4 = Task.new("Task 4", :is_finished => true)
 
+    tasks = [task_1, task_2, task_3, task_4]
+
+    tasklist = Tasklist.new("example_task_list", tasks)
+    expected = [task_2]
+
+    assert_equal(expected, tasklist.tasks_today)
+  end
 end

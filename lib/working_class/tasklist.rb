@@ -29,6 +29,14 @@ module WorkingClass
       @tasks.select { |task| task.is_upcoming }
     end
 
+    # Returns all the tasks that are due today
+    #
+    # @return [Array<WorkingClass::Task>] an Array with the tasks due today
+    #
+    def tasks_today
+      @tasks.select { |task| task.is_today }
+    end
+
     # Returns all the tasks that are due tomorrow
     #
     # @return [Array<WorkingClass::Task>] an Array with the tasks due tomorrow
@@ -52,6 +60,7 @@ module WorkingClass
     def unfinished_tasks
       @tasks.select { |task| !task.is_finished }
     end
+
 
   end
 end

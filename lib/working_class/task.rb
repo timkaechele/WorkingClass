@@ -77,6 +77,15 @@ module WorkingClass
     alias :is_tomorrow? :is_tomorrow
     alias :tomorrow? :is_tomorrow
 
+    # Returns true if the Task is due today.
+    # A finished task or a Task without a date is never today.
+    #
+    # @return [Boolean] true if the task is due today
+    def is_today
+      !@is_finished and @date == Date.today
+    end
 
+    alias :is_today? :is_today
+    alias :today? :is_today
   end
 end
