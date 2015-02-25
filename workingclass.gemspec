@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tim Kächele"]
   spec.email         = ["TimKaechele@me.com"]
   spec.summary       = "WorkingClass is an easy to use todolist syntax"
-  spec.description   = "Working Class is a todolist syntax that aims at making" +
+  spec.description   = "Working Class is a todolist syntax that aims at making " +
                        "it dead simple to write tasks in an human readable way " +
                        "that is also parseable."
   spec.homepage      = "http://github.com/TimKaechele/WorkingClass"
