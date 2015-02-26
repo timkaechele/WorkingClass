@@ -1,4 +1,4 @@
-# WorkingClass [![Build Status](https://travis-ci.org/TimKaechele/WorkingClass.svg)](https://travis-ci.org/TimKaechele/WorkingClass)
+# WorkingClass [![Build Status](https://travis-ci.org/TimKaechele/WorkingClass.svg?branch=master)](https://travis-ci.org/TimKaechele/WorkingClass)
 
 WorkingClass is an human readable syntax to write tasklists.
 Besides being easy to read it's fully parseable, so you can work with the tasks
