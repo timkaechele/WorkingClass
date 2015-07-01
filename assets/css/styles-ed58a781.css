@@ -1,0 +1,1309 @@
+@charset "UTF-8";
+/*---------------------------------------------------------*\
+
+    WorkingClass CSS
+
+    @author Tim Kächele <TimKaechele@me.com>
+    @license GNU GPL v3
+
+/*---------------------------------------------------------*/
+/*---------------------------------------------------------*\
+
+    # Reset
+
+    Just a small reset. While the * selector is one of the
+    slowest selectors, it is here used to reset box-sizing
+    and the different margins of elements.
+
+    May be replaced with normalize.css
+
+/*---------------------------------------------------------*/
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_reset.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* line 17, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_reset.scss */
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+/*---------------------------------------------------------*\
+
+    # General Stuff
+
+    Just small adjustments to the html background and the
+    behaviour of the body to keep the grid system working.
+
+/*---------------------------------------------------------*/
+/* line 10, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_general.scss */
+html {
+  background: #fafafa;
+}
+
+/* line 14, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_general.scss */
+body {
+  width: 100%;
+  *zoom: 1;
+}
+/* line 8, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+body:before, body:after {
+  content: "";
+  display: table;
+}
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+body:after {
+  clear: both;
+}
+
+@media (max-width: 700px) {
+  /* line 19, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_general.scss */
+  .mobile-hidden {
+    visibility: none;
+    display: none;
+  }
+}
+/*---------------------------------------------------------*\
+
+    !!!!!!!!!!! UPDATE DOCUMENTATION !!!!!!!!!!!!!!!!
+    =================================================
+
+    # Grid System
+
+    This is a basic grid system. It is based on a 12 column
+    layout.
+
+    It tries to stay as semantic as possible.
+    You can use the classes directly in your html as well as
+    writing your own classes that extend the grid system.
+
+    The Grid system works like this:
+
+    <div class="grid">
+        <div class="grid__item one-half push-one-third">
+            <!-- Your content goes here -->
+        </div>
+        <!-- Other grid items -->
+    </div>
+
+    - Every .grid__item should be placed inside a .grid class
+      wrapper
+    - Every .grid__item should have a modifier like
+        - one-half
+        - one-third
+        - etc.
+    - The .push-one-third and all other push and pull classes
+      are completely optional.
+
+    If you need a more fine grained grid system create your
+    own modifier.
+
+    There are also some basic push operations.
+    Due to the pointlessness of .push-one-whole, the class
+    is not implemented.
+
+/*---------------------------------------------------------*/
+/* line 43, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+.container {
+  width: 95%;
+  /* change to % to start making pages responsives */
+  margin: 0 auto;
+}
+
+/* line 48, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+.grid {
+  display: block;
+  width: 102.08333%;
+  margin: 0 -1.04167%;
+  *zoom: 1;
+  margin-bottom: 1rem;
+}
+/* line 8, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.grid:before, .grid:after {
+  content: "";
+  display: table;
+}
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.grid:after {
+  clear: both;
+}
+
+/* line 58, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+.grid__item {
+  display: inline;
+  float: left;
+}
+
+/* line 63, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+.grid__item--vertical-centered {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* line 68, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+.col-desktop-1,
+.col-desktop-2,
+.col-desktop-3,
+.col-desktop-4,
+.col-desktop-5,
+.col-desktop-6,
+.col-desktop-7,
+.col-desktop-8,
+.col-desktop-9,
+.col-desktop-10,
+.col-desktop-11,
+.col-desktop-12 {
+  width: 97.91667%;
+  margin: 0 1.04167%;
+}
+
+@media (min-width: 700px) {
+  /* line 84, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .container {
+    width: 690px;
+    /* change to % to start making pages responsives */
+    margin: 0 auto;
+  }
+
+  /* line 88, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-1 {
+    width: 6.25%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 91, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-2 {
+    width: 14.58333%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 94, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-3 {
+    width: 22.91667%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 97, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-4 {
+    width: 31.25%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 100, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-5 {
+    width: 39.58333%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 103, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-6 {
+    width: 47.91667%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 106, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-7 {
+    width: 56.25%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 109, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-8 {
+    width: 64.58333%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 112, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-9 {
+    width: 72.91667%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 115, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-10 {
+    width: 81.25%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 118, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-11 {
+    width: 89.58333%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 121, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .col-desktop-12 {
+    width: 97.91667%;
+    margin: 0 1.04167%;
+  }
+
+  /* line 129, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-1 {
+    margin-left: 9.375%;
+  }
+
+  /* line 133, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-2 {
+    margin-left: 17.70833%;
+  }
+
+  /* line 137, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-3 {
+    margin-left: 26.04167%;
+  }
+
+  /* line 141, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-4 {
+    margin-left: 34.375%;
+  }
+
+  /* line 145, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-5 {
+    margin-left: 42.70833%;
+  }
+
+  /* line 149, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-6 {
+    margin-left: 51.04167%;
+  }
+
+  /* line 153, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-7 {
+    margin-left: 59.375%;
+  }
+
+  /* line 157, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-8 {
+    margin-left: 67.70833%;
+  }
+
+  /* line 161, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-9 {
+    margin-left: 76.04167%;
+  }
+
+  /* line 165, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-10 {
+    margin-left: 84.375%;
+  }
+
+  /* line 169, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-11 {
+    margin-left: 92.70833%;
+  }
+
+  /* line 173, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .push-desktop-12 {
+    margin-left: 101.04167%;
+  }
+
+  /* line 181, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-1 {
+    margin-right: 9.375%;
+  }
+
+  /* line 185, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-2 {
+    margin-right: 17.70833%;
+  }
+
+  /* line 189, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-3 {
+    margin-right: 26.04167%;
+  }
+
+  /* line 193, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-4 {
+    margin-right: 34.375%;
+  }
+
+  /* line 197, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-5 {
+    margin-right: 42.70833%;
+  }
+
+  /* line 201, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-6 {
+    margin-right: 51.04167%;
+  }
+
+  /* line 205, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-7 {
+    margin-right: 59.375%;
+  }
+
+  /* line 209, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-8 {
+    margin-right: 67.70833%;
+  }
+
+  /* line 213, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-9 {
+    margin-right: 76.04167%;
+  }
+
+  /* line 217, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-10 {
+    margin-right: 84.375%;
+  }
+
+  /* line 221, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-11 {
+    margin-right: 92.70833%;
+  }
+
+  /* line 225, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .pull-desktop-12 {
+    margin-right: 101.04167%;
+  }
+}
+@media (min-width: 970px) {
+  /* line 231, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_grid.scss */
+  .container {
+    width: 960px;
+    /* change to % to start making pages responsives */
+    margin: 0 auto;
+  }
+}
+/*---------------------------------------------------------*\
+
+    # Typography
+
+    While all standard typography elements are styled, every
+    element also has a corresponding class, so if you want
+    a not so vibrant <h1> you can apply the .beta class of
+    an <h2> tag. By doing so you can keep semantics without
+    bloating your css.
+
+/*---------------------------------------------------------*/
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+body {
+  width: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  *zoom: 1;
+}
+/* line 8, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+body:before, body:after {
+  content: "";
+  display: table;
+}
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+body:after {
+  clear: both;
+}
+
+/* line 22, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+h1, .alpha {
+  margin-bottom: 1rem;
+  border-bottom: 0.125rem solid #333;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+/* line 29, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+h2, .beta {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+/* line 35, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+h3, .gamma {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* line 41, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+h4, .delta {
+  margin-bottom: 1rem;
+}
+
+/* line 45, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+h5, .epsilon {
+  margin-bottom: 1rem;
+}
+
+/* line 49, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+h6, .zeta {
+  margin-bottom: 1rem;
+}
+
+/* line 53, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+p, .text {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* line 58, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+a {
+  color: #F32E2F;
+}
+/* line 60, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+a:hover {
+  color: #e10d0e;
+}
+
+/* line 64, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+pre {
+  margin-bottom: 1rem;
+  border: 0.125rem solid #e6e6e6;
+  padding: 1rem;
+  overflow: auto;
+}
+/* line 69, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+pre code {
+  font-family: Monaco, Menlo, monospace;
+  font-size: 0.6rem;
+}
+
+/* line 75, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.text-icon {
+  font-size: 6rem;
+  font-weight: 600;
+}
+
+/*---------------------------------------------------------*\
+
+    # Typography Helpers
+
+    These helpers should be used rarely. They carry an
+    unnecessary styling inside the html. They should solely
+    used if there are not enough use-cases that could justify
+    the creation of a new class. Otherwise you are free to
+    extend these classes.
+
+/*---------------------------------------------------------*/
+/* line 91, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.mega {
+  margin-bottom: 1rem;
+  font-size: 2.7rem;
+  border: none;
+  font-weight: 600;
+}
+
+/* line 98, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.mega--brand {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* line 103, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.small {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+
+/* line 108, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.micro {
+  margin-bottom: 1rem;
+  font-size: 0.6rem;
+}
+
+/* line 113, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.text--left {
+  text-align: left;
+}
+
+/* line 117, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.text--center {
+  text-align: center;
+}
+
+/* line 121, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+.text--right {
+  text-align: right;
+}
+
+/*---------------------------------------------------------*\
+
+    # Lists
+
+    Lists are kept neutral. They follow, like all
+    typography elements a vertical rhythm, besides that they
+    are like the original html styling.
+
+/*---------------------------------------------------------*/
+/* line 134, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+ul, .unordered-list {
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+/* line 139, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+ol, .numbered-list {
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+/*---------------------------------------------------------*\
+
+    # Selection
+
+    A custom selection design.
+
+/*---------------------------------------------------------*/
+/* line 151, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_typography.scss */
+::selection {
+  background: #333;
+  color: #F32E2F;
+}
+
+/*---------------------------------------------------------*\
+
+    # Navigation Elements
+
+/*---------------------------------------------------------*/
+/* line 7, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav {
+  margin-left: 0;
+}
+/* line 9, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav > li {
+  display: inline-block;
+  vertical-align: top;
+  list-style: none;
+  margin-right: 0.5rem;
+}
+/* line 14, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav > li:last-child {
+  margin-right: none;
+}
+
+/* line 21, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--keywords > li {
+  margin-right: 0;
+}
+/* line 23, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--keywords > li:after {
+  content: ", ";
+}
+/* line 26, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--keywords > li:last-child:after {
+  content: "";
+}
+
+/* line 32, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--bold {
+  border-bottom: 0.125rem solid #F32E2F;
+}
+/* line 34, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--bold > li {
+  margin-bottom: 1rem;
+}
+
+/* line 39, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav__link, .table-of-contents a {
+  padding-bottom: 0.125rem;
+  color: #F32E2F;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.125s;
+}
+/* line 45, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav__link:hover, .table-of-contents a:hover {
+  color: #333;
+  border-bottom: 1px solid #F32E2F;
+}
+
+/* line 50, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav__link--inverted {
+  color: #fff;
+}
+/* line 52, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav__link--inverted:hover {
+  color: #333;
+}
+
+/* line 57, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav__link--active {
+  color: #333;
+  border-bottom: 0.125rem solid #F32E2F;
+}
+
+/* line 63, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--breadcrumb > li {
+  margin-right: 0.2rem;
+}
+/* line 65, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--breadcrumb > li:after {
+  margin-left: 0.4rem;
+  content: "»";
+}
+/* line 70, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.nav--breadcrumb > li:last-child:after {
+  content: "";
+}
+
+/* line 76, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.block-list {
+  margin-bottom: 1rem;
+  margin-left: 0;
+  display: block;
+}
+/* line 80, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.block-list > li {
+  list-style: none;
+  padding: 1rem 0;
+  border-bottom: 0.125rem solid #d8d8d8;
+}
+
+/* line 90, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.table-of-contents {
+  margin-bottom: 1rem;
+  margin-left: 0;
+  counter-reset: count;
+  border-left: 0.0625rem solid #d8d8d8;
+  border-right: 0.0625rem solid #d8d8d8;
+}
+/* line 97, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.table-of-contents > li {
+  list-style: none;
+  counter-increment: count;
+  padding: 1rem 0;
+  border-bottom: 0.0625rem solid #d8d8d8;
+}
+/* line 103, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.table-of-contents > li:before {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  color: #999999;
+  content: counter(count,decimal-leading-zero);
+  font-weight: 300;
+}
+/* line 111, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.table-of-contents > li:after {
+  float: right;
+  content: "#";
+  margin-right: 1rem;
+  color: #999999;
+  *zoom: 1;
+}
+/* line 8, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.table-of-contents > li:after:before, .table-of-contents > li:after:after {
+  content: "";
+  display: table;
+}
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.table-of-contents > li:after:after {
+  clear: both;
+}
+/* line 119, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_nav.scss */
+.table-of-contents > li:first-child {
+  border-top: 0.0625rem solid #d8d8d8;
+}
+
+/*---------------------------------------------------------*\
+
+    # Rule
+
+    A rule is a horizontal divider. It comes in 4 different
+    appearances. The standard <hr> tag is the base. It just
+    establishes a vertical rhythm.
+
+    Normally you would use it with the .rule class applied
+    The .rule applies a quite neutral appearance.
+
+    If you need a bold appearance, apply the modifier
+    .rule--bold.
+
+    For the not so loud moments you can use the .rule--light
+    modifier. It is only half as thick as the standard rule.
+
+    There is also a .rule--dashed modifier that allows to
+    use dashed rulers. Keep in mind that you can't really
+    guarantee the appearance of a dashed line in different
+    browsers.
+
+    The .rule and all its modifiers are not meant to be used
+    outside of the <hr> tag. Just saying.
+
+/*---------------------------------------------------------*/
+/* line 28, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_rule.scss */
+hr {
+  margin-bottom: 1rem;
+}
+
+/* line 32, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_rule.scss */
+.rule {
+  border: none;
+  height: 0;
+  border-bottom: 0.125rem solid #d8d8d8;
+}
+
+/* line 38, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_rule.scss */
+.rule--light {
+  border-bottom-width: 0.0625rem;
+}
+
+/* line 42, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_rule.scss */
+.rule--vibrant {
+  border-bottom-color: #F32E2F;
+}
+
+/* line 46, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_rule.scss */
+.rule--neutral {
+  border-bottom-color: #fff;
+}
+
+/* line 50, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_rule.scss */
+.rule--dashed {
+  border-bottom-style: dashed;
+}
+
+/*---------------------------------------------------------*\
+
+    # Editor
+
+/*---------------------------------------------------------*/
+/* line 8, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+/* line 14, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor__head {
+  background: #E0E0E0;
+  *zoom: 1;
+}
+/* line 8, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.editor__head:before, .editor__head:after {
+  content: "";
+  display: table;
+}
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.editor__head:after {
+  clear: both;
+}
+
+/* line 20, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor__body pre {
+  margin: 0;
+  font-size: 1.125rem;
+  border: none;
+  min-height: 10rem;
+}
+
+/* line 28, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor__button {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2rem;
+  float: left;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border: 0.125rem solid #000;
+}
+/* line 35, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor__button:first-child {
+  margin-left: 0.75rem;
+}
+
+/* line 40, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor__button--red {
+  background-color: #FF3F4A;
+  border-color: #ff2532;
+}
+
+/* line 45, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor__button--yellow {
+  background-color: #FFBF03;
+  border-color: #e9ad00;
+}
+
+/* line 50, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_editor.scss */
+.editor__button--green {
+  background-color: #03C736;
+  border-color: #03ae2f;
+}
+
+/* line 1, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_misc.scss */
+.masthead {
+  display: block;
+  background: #F32E2F;
+  padding: 1rem 0 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 0.0625rem solid #c90c0c;
+  color: #fff;
+}
+
+/* line 10, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_misc.scss */
+.main-nav {
+  display: block;
+  float: right;
+  *zoom: 1;
+}
+/* line 8, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.main-nav:before, .main-nav:after {
+  content: "";
+  display: table;
+}
+/* line 13, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_helpers.scss */
+.main-nav:after {
+  clear: both;
+}
+
+/* line 15, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_misc.scss */
+.header {
+  margin: 1rem 0;
+}
+
+/* line 18, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_misc.scss */
+.brand {
+  padding: 2rem;
+  padding-bottom: 0;
+  border: 0.125rem solid #fff;
+}
+
+/* line 23, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_misc.scss */
+.brand-image {
+  padding-left: 1.5rem;
+}
+
+/* line 26, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_misc.scss */
+.brand-link {
+  text-decoration: none;
+}
+
+/* line 29, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_misc.scss */
+.blog-list {
+  border-left: 0.0625rem solid #d8d8d8;
+  border-right: 0.0625rem solid #d8d8d8;
+}
+
+/*---------------------------------------------------------*\
+
+    Solarized Dark Syntax Highlighting Theme
+
+    SOLARIZED HEX      ROLE
+    --------- -------- ---------------------------------
+    base03    #002b36  background
+    base01    #586e75  comments / secondary content
+    base1     #93a1a1  body text / default code
+    orange    #cb4b16  constants
+    red       #dc322f  regex, special keywords
+    blue      #268bd2  reserved keywords
+    cyan      #2aa198  strings, numbers
+    green     #859900  operators, other keywords
+
+/*---------------------------------------------------------*/
+/* line 19, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight {
+  background-color: #002b36;
+  color: #93a1a1;
+}
+
+/* Comment */
+/* line 22, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .c {
+  color: #586e75;
+}
+
+/* Error */
+/* line 25, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .err {
+  color: #93a1a1;
+}
+
+/* Generic */
+/* line 28, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .g {
+  color: #93a1a1;
+}
+
+/* Keyword */
+/* line 31, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .k {
+  color: #859900;
+}
+
+/* Literal */
+/* line 34, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .l {
+  color: #93a1a1;
+}
+
+/* Name */
+/* line 37, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .n {
+  color: #93a1a1;
+}
+
+/* Operator */
+/* line 40, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .o {
+  color: #859900;
+}
+
+/* line 41, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .x {
+  color: #cb4b16;
+}
+
+/* Other */
+/* line 44, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .p {
+  color: #93a1a1;
+}
+
+/* Punctuation */
+/* line 47, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .cm {
+  color: #586e75;
+}
+
+/* Comment.Multiline */
+/* line 50, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .cp {
+  color: #859900;
+}
+
+/* Comment.Preproc */
+/* line 53, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .c1 {
+  color: #586e75;
+}
+
+/* Comment.Single */
+/* line 56, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .cs {
+  color: #859900;
+}
+
+/* Comment.Special */
+/* line 59, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gd {
+  color: #2aa198;
+}
+
+/* Generic.Deleted */
+/* line 62, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .ge {
+  color: #93a1a1;
+  font-style: italic;
+}
+
+/* Generic.Emph */
+/* line 65, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gr {
+  color: #dc322f;
+}
+
+/* Generic.Error */
+/* line 68, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gh {
+  color: #cb4b16;
+}
+
+/* Generic.Heading */
+/* line 71, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gi {
+  color: #859900;
+}
+
+/* Generic.Inserted */
+/* line 74, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .go {
+  color: #93a1a1;
+}
+
+/* Generic.Output */
+/* line 77, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gp {
+  color: #93a1a1;
+}
+
+/* Generic.Prompt */
+/* line 80, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gs {
+  color: #93a1a1;
+  font-weight: bold;
+}
+
+/* Generic.Strong */
+/* line 83, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gu {
+  color: #cb4b16;
+}
+
+/* Generic.Subheading */
+/* line 86, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .gt {
+  color: #93a1a1;
+}
+
+/* Generic.Traceback */
+/* line 89, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .kc {
+  color: #cb4b16;
+}
+
+/* Keyword.Constant */
+/* line 92, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .kd {
+  color: #268bd2;
+}
+
+/* Keyword.Declaration */
+/* line 95, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .kn {
+  color: #859900;
+}
+
+/* Keyword.Namespace */
+/* line 98, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .kp {
+  color: #859900;
+}
+
+/* Keyword.Pseudo */
+/* line 101, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .kr {
+  color: #268bd2;
+}
+
+/* Keyword.Reserved */
+/* line 104, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .kt {
+  color: #dc322f;
+}
+
+/* Keyword.Type */
+/* line 107, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .ld {
+  color: #93a1a1;
+}
+
+/* Literal.Date */
+/* line 110, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .m {
+  color: #2aa198;
+}
+
+/* Literal.Number */
+/* line 113, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .s {
+  color: #2aa198;
+}
+
+/* Literal.String */
+/* line 116, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .na {
+  color: #93a1a1;
+}
+
+/* Name.Attribute */
+/* line 119, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nb {
+  color: #B58900;
+}
+
+/* Name.Builtin */
+/* line 122, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nc {
+  color: #268bd2;
+}
+
+/* Name.Class */
+/* line 125, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .no {
+  color: #cb4b16;
+}
+
+/* Name.Constant */
+/* line 128, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nd {
+  color: #268bd2;
+}
+
+/* Name.Decorator */
+/* line 131, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .ni {
+  color: #cb4b16;
+}
+
+/* Name.Entity */
+/* line 134, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .ne {
+  color: #cb4b16;
+}
+
+/* Name.Exception */
+/* line 137, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nf {
+  color: #268bd2;
+}
+
+/* Name.Function */
+/* line 140, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nl {
+  color: #93a1a1;
+}
+
+/* Name.Label */
+/* line 143, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nn {
+  color: #93a1a1;
+}
+
+/* Name.Namespace */
+/* line 146, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nx {
+  color: #93a1a1;
+}
+
+/* Name.Other */
+/* line 149, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .py {
+  color: #93a1a1;
+}
+
+/* Name.Property */
+/* line 152, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nt {
+  color: #268bd2;
+}
+
+/* Name.Tag */
+/* line 155, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .nv {
+  color: #268bd2;
+}
+
+/* Name.Variable */
+/* line 158, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .ow {
+  color: #859900;
+}
+
+/* Operator.Word */
+/* line 161, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .w {
+  color: #93a1a1;
+}
+
+/* Text.Whitespace */
+/* line 164, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .mf {
+  color: #2aa198;
+}
+
+/* Literal.Number.Float */
+/* line 167, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .mh {
+  color: #2aa198;
+}
+
+/* Literal.Number.Hex */
+/* line 170, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .mi {
+  color: #2aa198;
+}
+
+/* Literal.Number.Integer */
+/* line 173, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .mo {
+  color: #2aa198;
+}
+
+/* Literal.Number.Oct */
+/* line 176, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .sb {
+  color: #586e75;
+}
+
+/* Literal.String.Backtick */
+/* line 179, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .sc {
+  color: #2aa198;
+}
+
+/* Literal.String.Char */
+/* line 182, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .sd {
+  color: #93a1a1;
+}
+
+/* Literal.String.Doc */
+/* line 185, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .s2 {
+  color: #2aa198;
+}
+
+/* Literal.String.Double */
+/* line 188, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .se {
+  color: #cb4b16;
+}
+
+/* Literal.String.Escape */
+/* line 191, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .sh {
+  color: #93a1a1;
+}
+
+/* Literal.String.Heredoc */
+/* line 194, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .si {
+  color: #2aa198;
+}
+
+/* Literal.String.Interpol */
+/* line 197, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .sx {
+  color: #2aa198;
+}
+
+/* Literal.String.Other */
+/* line 200, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .sr {
+  color: #dc322f;
+}
+
+/* Literal.String.Regex */
+/* line 203, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .s1 {
+  color: #2aa198;
+}
+
+/* Literal.String.Single */
+/* line 206, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .ss {
+  color: #2aa198;
+}
+
+/* Literal.String.Symbol */
+/* line 209, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .bp {
+  color: #268bd2;
+}
+
+/* Name.Builtin.Pseudo */
+/* line 212, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .vc {
+  color: #268bd2;
+}
+
+/* Name.Variable.Class */
+/* line 215, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .vg {
+  color: #268bd2;
+}
+
+/* Name.Variable.Global */
+/* line 218, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .vi {
+  color: #268bd2;
+}
+
+/* Name.Variable.Instance */
+/* Literal.Number.Integer.Long */
+/* line 223, /Users/Tim/mediengestaltung-website-projekt/source/assets/css/_highlight.scss */
+.highlight .il {
+  color: #2aa198;
+}

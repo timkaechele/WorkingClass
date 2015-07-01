@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<title>WorkingClass Documentation</title>
+<link href="../assets/css/styles-ed58a781.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class='container'>
+<div class='container'>
+<header class='header'>
+<div class='grid'>
+<div class='grid__item col-desktop-6'>
+<a class="beta brand-link" href="../"><img height="25px" src="../assets/img/fist_black-170c2073.svg" />
+WorkingClass
+</a></div>
+<nav class='grid__item col-desktop-6'>
+<ul class='nav main-nav'>
+<li><a class="nav__link nav__link--active" href="the_syntax.html">Documentation</a></li>
+<li><a class="nav__link " href="../blog.html">Blog</a></li>
+<li><a class="nav__link" href="https://github.com/TimKaechele/workingclass">Github</a></li>
+</ul>
+</nav>
+</div>
+</header>
+</div>
+
+<div class='grid'>
+<div class='grid__item col-desktop-4'>
+<p class='alpha'>Documentation</p>
+<ul class='block-list'>
+<li>
+<a class="nav__link nav__link--active" href="documentation/the_syntax.html">The Syntax</a>
+</li>
+<li>
+<a class="nav__link" href="http://www.rubydoc.info/github/TimKaechele/WorkingClass/">The Parser</a>
+</li>
+</ul>
+</div>
+<div class='grid__item col-desktop-8'>
+<h1>The Syntax</h1>
+
+<h2>Express yourself</h2>
+
+<p>WorkingClass is about readability. So we tried to make it as expressive as
+possible.</p>
+
+<p>Well first of all: a tasklist needs a name, without a name a tasklist would be
+nothing. Never forget it. If you write a tasklist without a name you will produce
+a gigantic error message. Just sayin.</p>
+
+<p>Anyways, everything else is completely optional. Hurra.</p>
+<pre class="highlight plaintext"><code>My Tasklist name
+---
+[ ] an example task
+</code></pre>
+
+<h2>Just do it.</h2>
+
+<p>A tasklist is nothing without the ability to finish a task. We tried to make it
+as human readable and easy to use as possible.</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+[ ] An unfinished task
+</code></pre>
+
+<p>It&rsquo;s also possible to write an unfinished task without the space between the
+brackets.</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+[] An unfinished task
+</code></pre>
+
+<p>However, we recommed the <code>[ ]</code> syntax, it looks much nicer.</p>
+
+<p>Of course you have to get things done. WorkingClass recognizes any
+non-whitespace character between the brackets as a finished task.</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+[x] Look I finished something
+
+[X] I am also finished.
+
+[y] Me too
+
+[✔︎] I am so fancy
+</code></pre>
+
+<h2>All tasks are equal, but some tasks are more equal.</h2>
+
+<p>Give tasks priority. Just add a <code>!</code> in front of a task.</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+![ ] A very important task
+
+[ ] A normal task
+</code></pre>
+
+<h2>It&rsquo;s about time.</h2>
+
+<p>Most tasks have a due date. WorkingClass allows to add dates to a task by
+writing the date in the format <code>d(d).m(m).yy(yy)</code> in curly brackets</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+![ ]{13.12.15} Finish it.
+
+[ ]{3.05.15} Website.
+</code></pre>
+
+<h2>I am going to remember that.</h2>
+
+<p>So now we know how to write simple tasks with a due date. But well, we are humans,
+we forget things, so it would be nice to have a reminder, rightt? Right!</p>
+
+<p><strong>Notice:</strong> The WorkingClass doesn&rsquo;t come with a system to deliver notifications
+or reminders, it just allows to specify one, it won&rsquo;t send an email or a
+push notification to your smartphone.</p>
+
+<p>There are basically two basic ways to specify a reminder.</p>
+
+<h3>Keep it relative.</h3>
+
+<p>If your task comes with a due date and you want to be notified one day ahead
+you can simply write it like this.</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+[ ]{13.12.2015}(-1) A very important task with a reminder
+</code></pre>
+
+<p>This will remind you one day ahead. The parser comes with some configurations to
+set a standard time, without any adjustments the parser defaults every reminder
+without a time to 9:00am, but you can configure this.</p>
+
+<p>Sometimes you don&rsquo;t want to be reminded 9:00am, then you can write a reminder
+like this.</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+[ ]{13.12.2015}(-2 9:30) A very important task with a reminder 2 days ahead
+</code></pre>
+
+<h3>Absolutism at its finest</h3>
+
+<p>Well, relative reminders may be quite stylish and awesome, but they are not
+always very handy. In those moments you can write it also with an absolute date
+This is very handy if your task doesn&rsquo;t come with a due date and you still want
+to have a reminder.</p>
+
+<p>The same thing as with relative reminders: if you don&rsquo;t specify a time, the parser
+defaults to 9:00am.</p>
+<pre class="highlight plaintext"><code>My Tasklist
+---
+[ ](12.12.15) REMIND ME.
+[ ](22.5.15 15:00) That thing.
+</code></pre>
+
+</div>
+</div>
+</div>
+
+<div class='container'>
+<hr class='rule rule--light'>
+<footer>
+<ul class='nav'>
+<li>Project by Tim Kächele 2015</li>
+<li><a href="#">RSS Feed</a></li>
+<li><a href="https://twitter.com/timkaechele">Twitter</a></li>
+<li><a href="https://github.com/timkaechele/WorkingClass">Github</a></li>
+<li><a href="../imprint.html">Imprint</a></li>
+</ul>
+</footer>
+
+</div>
+</body>
+</html>
