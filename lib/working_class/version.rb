@@ -1,5 +1,3 @@
 module WorkingClass
-  # The version of the gem.
-  # We use semantic versioning
-  VERSION = "0.2.1"
+  VERSION = "1.0.0"
 end

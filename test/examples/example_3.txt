@@ -1,4 +1,0 @@
-Development Todolist
----
-[ ]{12.12.15} Release WorkingClass
-[x]{12.02.15} Yolo

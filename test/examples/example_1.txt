@@ -1,3 +1,0 @@
-A cool todolist
----
-[ ] My Task Number 1

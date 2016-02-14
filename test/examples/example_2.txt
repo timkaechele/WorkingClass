@@ -1,3 +1,0 @@
-Groceries List
----
-[X] My finished Task

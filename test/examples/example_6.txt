@@ -1,5 +1,0 @@
-Yeah more examples
----
-[ ]{17.03.12}(-1) Twitter Downtime
-[ ]{12.5.15}(-2 5:00) Another Task
-[X]{12.3.15}(5:00) Remind me!!
