@@ -34,6 +34,7 @@ By doing so I will add some more features to the gem like:
 - support for task priorities
 - support to serialize a tasklist into the WorkingClass syntax (add write support)
 - support for a more pleasant date syntax
+- support the parsing of multiple tasklists
 
 ## Usage
 
