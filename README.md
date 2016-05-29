@@ -1,6 +1,6 @@
 # WorkingClass [![Build Status](https://travis-ci.org/TimKaechele/WorkingClass.svg?branch=master)](https://travis-ci.org/TimKaechele/WorkingClass)
 
-WorkingClass is an human readable syntax to write tasklists.
+WorkingClass is a human readable syntax to write tasklists.
 Besides being easy to read it's fully parseable, so you can work with the tasks
 in Ruby.
 
@@ -18,17 +18,28 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
+Or install it yourself with:
 
 ```sh
 $ gem install working_class
 ```
 
+## Roadmap
+
+Currently the parser is quite bloated and needs some refinement, this will happen in the next weeks.
+
+By doing so I will add some more features to the gem like:
+
+- support for nested tasks (a task should have the ability to have subtasks)
+- support for task priorities
+- support to serialize a tasklist into the WorkingClass syntax (add write support)
+- support for a more pleasant date syntax
+
 ## Usage
 
 ### The Syntax
 
-Keep in mind that all dates are formatted like this: `DD.MM.YYYY` or `D.M.YY`
+Keep in mind that all dates are formatted like this: `D(D).M(M).YY(YY)`.
 
 ```
 Tasklist Name
